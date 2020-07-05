@@ -1,7 +1,14 @@
+# window curl fix
+
+			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+
+
 # opencart-cheatsheet
 Reset Opencart product 
-ALTER TABLE ocmv_category  AUTO_INCREMENT = 1;
-DELETE FROM ocmv_category WHERE category_id > 0;
+      ALTER TABLE ocmv_category  AUTO_INCREMENT = 1;
+      DELETE FROM ocmv_category WHERE category_id > 0;
 
 
 DELETE FROM ocmv_category_description WHERE category_id > 0;
