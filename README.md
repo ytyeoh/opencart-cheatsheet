@@ -37,3 +37,13 @@ ALTER TABLE ocmv_product_special AUTO_INCREMENT = 1;
 DELETE FROM ocmv_product_special WHERE product_special_id > 0;
 DELETE FROM ocmv_product_categoty WHERE product_id > 0;
 DELETE FROM ocmv_product_to_store WHERE product_id > 0;
+
+
+
+
+#category
+DELETE FROM `ocun_demo1category` WHERE category_id > 0;
+DELETE FROM `ocun_demo1category_description` WHERE category_id > 0;
+DELETE FROM `ocun_demo1category_to_layout` WHERE category_id > 0;
+DELETE FROM `ocun_demo1category_to_store` WHERE category_id > 0;
+DELETE FROM `ocun_demo1category_path` WHERE category_id > 0;
