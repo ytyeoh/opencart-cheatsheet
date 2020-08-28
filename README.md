@@ -3,6 +3,12 @@
 			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
 			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
+# rename filename ext
+
+	find . -iname "*.JPG" -exec bash -c 'mv "$0" "${0%\.JPG}.jpg"' {} \;
+	find . -iname "*.png" -exec bash -c 'mv "$0" "${0%\.png}.jpg"' {} \;
+	find . -iname "*.jpeg" -exec bash -c 'mv "$0" "${0%\.jpeg}.jpg"' {} \;
+	find . -iname "*.JPEG" -exec bash -c 'mv "$0" "${0%\.JPEG}.jpg"' {} \;
 
 
 # opencart-cheatsheet
