@@ -1,4 +1,4 @@
-#delete order 	
+# delete order
 	DELETE FROM `ocun_order` WHERE `order_id` BETWEEN 110 AND 118;
 	DELETE FROM `ocun_order_history` WHERE `order_id` BETWEEN 110 AND 118;
 	DELETE FROM `ocun_order_product` WHERE `order_id` BETWEEN 110 AND 118;
