@@ -5,6 +5,17 @@
 	DELETE FROM `ocun_order_total` WHERE `order_id` BETWEEN 110 AND 118;
 	DELETE FROM `ocun_order_voucher` WHERE `order_id` BETWEEN 110 AND 118;
 	DELETE FROM `ocun_order_shipment` WHERE `order_id` BETWEEN 110 AND 118;
+	
+# downoad all products 
+	SELECT p.product_id AS id, p.model, pd.name, p.price, pf.filter_id, IFNULL((SELECT COUNT(*) 
+		  FROM ocun_product_image 
+		 WHERE ocun_product_image.product_id = p.product_id
+		 GROUP BY ocun_product_image.product_id),0) -1 AS Extra_Images
+	FROM ocun_product p
+	LEFT JOIN ocun_product_description pd USING (product_id)
+	LEFT JOIN ocun_product_filter pf USING (product_id)  
+	WHERE pd.language_id = 2
+	ORDER BY `id` ASC
 # window curl fix
 
 			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
