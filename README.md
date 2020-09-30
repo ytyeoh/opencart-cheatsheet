@@ -10,7 +10,7 @@
 	SELECT p.product_id AS id, p.model, pd.name, p.price, pf.filter_id, IFNULL((SELECT COUNT(*) 
 		  FROM ocun_product_image 
 		 WHERE ocun_product_image.product_id = p.product_id
-		 GROUP BY ocun_product_image.product_id),0) -1 AS Extra_Images
+		 GROUP BY ocun_product_image.product_id),1) -1 AS Extra_Images
 	FROM ocun_product p
 	LEFT JOIN ocun_product_description pd USING (product_id)
 	LEFT JOIN ocun_product_filter pf USING (product_id)  
