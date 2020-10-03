@@ -38,9 +38,13 @@ Reset Opencart product
 
 # opencart-cheatsheet delete category
 	DELETE FROM ocmv_category_description WHERE category_id > 0;
+	ALTER TABLE ocmv_category_description AUTO_INCREMENT = 1;
 	DELETE FROM ocmv_category_path WHERE category_id > 0;
+	ALTER TABLE ocmv_category_path AUTO_INCREMENT = 1;
 	DELETE FROM ocmv_category_to_store WHERE category_id > 0;
+	ALTER TABLE ocmv_category_to_store AUTO_INCREMENT = 1;
 	DELETE FROM ocmv_category_to_layout WHERE category_id > 0;
+	ALTER TABLE ocmv_category_to_layout AUTO_INCREMENT = 1;
 
 # opencart-cheatsheet delete product
 	ALTER TABLE ocmv_product AUTO_INCREMENT = 1;
