@@ -1,3 +1,5 @@
+# opencart csv
+	SELECT op.product_id AS id, opd.name AS title, opd.description, 'YES' AS availability, 'new' AS 'condition', op.price, 'link' AS link, concat('https://changshenfood.com/', op.image) AS image_link, op.mpn AS brand, concat('https://changshenfood.com/', opi.image) AS additional_image_link from  ocun_product op LEFT JOIN ocun_product_description opd ON opd.product_id = op.product_id LEFT JOIN ocun_product_image opi ON opi.product_id = op.product_id  WHERE opd.language_id= 1
 # delete order
 	DELETE FROM `ocun_order` WHERE `order_id` BETWEEN 110 AND 118;
 	DELETE FROM `ocun_order_history` WHERE `order_id` BETWEEN 110 AND 118;
