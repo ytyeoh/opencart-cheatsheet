@@ -1,5 +1,7 @@
 # opencart csv
 	SELECT op.product_id AS id, opd.name AS title, opd.description AS rich_text_description, 'In Stock' AS availability, 'new' AS 'condition', op.price, concat('https://changshenfood.com/index.php?route=product/product&product_id=', op.product_id) AS link, concat('https://changshenfood.com/image/', op.image) AS image_link, op.mpn AS brand, concat('https://changshenfood.com/image/', opi.image) AS additional_image_link, concat('category__', opc.category_id) AS google_product_category from  ocun_product op LEFT JOIN ocun_product_description opd ON opd.product_id = op.product_id LEFT JOIN ocun_product_image opi ON opi.product_id = op.product_id  LEFT JOIN ocun_product_to_store ops ON ops.product_id = op.product_id LEFT JOIN ocun_product_to_category opc ON opc.category_id = (SELECT opc1.category_id FROM ocun_product_to_category opc1 WHERE opc1.product_id = op.product_id ORDER BY opc1.category_id DESC LIMIT 1) WHERE opd.language_id= 1 AND ops.store_id = 1;
+	
+IFS(K29="category__217","Food, Beverages & Tobacco > Beverages > Tea & Infusions",K29="category__218","Food, Beverages & Tobacco > Beverages > Alcoholic Beverages",K29="category__219","Food, Beverages & Tobacco > Beverages > Tea & Infusions",K29="category__218","Food, Beverages & Tobacco > Beverages > Alcoholic Beverages")
 
 
 
