@@ -14,17 +14,21 @@ IFS(K2="category__211","Food, Beverages & Tobacco > Beverages > Hot Chocolate",k
 	DELETE FROM `ocun_order_shipment` WHERE `order_id` BETWEEN 110 AND 118;
 	
 # downoad all products 
-	SELECT p.product_id AS id, p.model, pd.name, p.price, pf.filter_id, GROUP_CONCAT(pc.category_id SEPARATOR ';') AS CategoryId, IFNULL((SELECT COUNT(*) 
-	    FROM ocun_product_image 
-	   WHERE ocun_product_image.product_id = p.product_id
-	   GROUP BY ocun_product_image.product_id),0) -1 AS Extra_Images
-	FROM ocun_product p
-	LEFT JOIN ocun_product_description pd USING (product_id)
-	LEFT JOIN ocun_product_filter pf USING (product_id)  
-	LEFT JOIN ocun_product_to_category pc USING (product_id)
-	WHERE pd.language_id = 2
-	GROUP BY pc.product_id
-	ORDER BY `id` ASC
+	SELECT p.product_id AS id, p.model, p.sku, pd.name as name_eng, pd1.name as name_mix, pd2.name as name_cn,   p.price, pf.filter_id, GROUP_CONCAT(pc.category_id SEPARATOR ';') AS CategoryId, IFNULL((SELECT COUNT(*) 
+    FROM ocun_product_image 
+   WHERE ocun_product_image.product_id = p.product_id
+   GROUP BY ocun_product_image.product_id),0) -1 AS Extra_Images
+FROM ocun_product p
+LEFT JOIN ocun_product_description pd USING (product_id)
+LEFT JOIN ocun_product_description pd1 USING (product_id)
+LEFT JOIN ocun_product_description pd2 USING (product_id)
+LEFT JOIN ocun_product_filter pf USING (product_id)  
+LEFT JOIN ocun_product_to_category pc USING (product_id)
+WHERE pd.language_id = 2
+and pd1.language_id = 1
+and pd2.language_id = 6
+GROUP BY pc.product_id
+ORDER BY `id` ASC
 # window curl fix
 
 			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
