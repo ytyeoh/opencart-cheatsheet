@@ -12,7 +12,21 @@ IFS(K2="category__211","Food, Beverages & Tobacco > Beverages > Hot Chocolate",k
 	DELETE FROM `ocun_order_total` WHERE `order_id` BETWEEN 110 AND 118;
 	DELETE FROM `ocun_order_voucher` WHERE `order_id` BETWEEN 110 AND 118;
 	DELETE FROM `ocun_order_shipment` WHERE `order_id` BETWEEN 110 AND 118;
-	
+
+
+# downalod products without category
+	  SELECT p.product_id AS id, p.model, p.sku, pd.name as name_eng, pd1.name as name_mix, pd2.name as name_cn,   p.price
+  	FROM ocun_product p
+  	LEFT JOIN ocun_product_description pd USING (product_id)
+  	LEFT JOIN ocun_product_description pd1 USING (product_id)
+	  LEFT JOIN ocun_product_description pd2 USING (product_id)
+
+	  WHERE p.product_id > 0 
+	  AND pd.language_id = 2
+	  and pd1.language_id = 1
+	  and pd2.language_id = 6
+	  GROUP BY p.product_id
+	  ORDER BY `id` ASC
 # downoad all products 
 	SELECT p.product_id AS id, p.model, p.sku, pd.name as name_eng, pd1.name as name_mix, pd2.name as name_cn,   p.price, pf.filter_id, GROUP_CONCAT(pc.category_id SEPARATOR ';') AS CategoryId, IFNULL((SELECT COUNT(*) 
     FROM ocun_product_image 
