@@ -28,21 +28,22 @@ IFS(K2="category__211","Food, Beverages & Tobacco > Beverages > Hot Chocolate",k
 	  GROUP BY p.product_id
 	  ORDER BY `id` ASC
 # downoad all products 
-	SELECT p.product_id AS id, p.model, p.sku, pd.name as name_eng, pd1.name as name_mix, pd2.name as name_cn,   p.price, pf.filter_id, GROUP_CONCAT(pc.category_id SEPARATOR ';') AS CategoryId, IFNULL((SELECT COUNT(*) 
-    FROM ocun_product_image 
+	SELECT p.product_id, p.model, p.sku, pd.name as chinese_name, pd2.name as english_name, p.price, p.manufacturer_id AS manufacture_id, GROUP_CONCAT(pc.category_id SEPARATOR ';') AS category_id,  GROUP_CONCAT(pf.filter_id SEPARATOR ';') AS filter, IFNULL((SELECT COUNT(*) 
+  	FROM ocun_product_image 
   	 WHERE ocun_product_image.product_id = p.product_id
-  	 GROUP BY ocun_product_image.product_id),0) -1 AS Extra_Images
-	FROM ocun_product p
-	LEFT JOIN ocun_product_description pd USING (product_id)
-	LEFT JOIN ocun_product_description pd1 USING (product_id)
-	LEFT JOIN ocun_product_description pd2 USING (product_id)
-	LEFT JOIN ocun_product_filter pf USING (product_id)  
-	LEFT JOIN ocun_product_to_category pc USING (product_id)
-	WHERE pd.language_id = 2
-	and pd1.language_id = 1
-	and pd2.language_id = 6
-	GROUP BY pc.product_id
-	ORDER BY `id` ASC
+  	 GROUP BY ocun_product_image.product_id),0) -1 AS total_image, 
+	   pd.description as description_chinese, pd2.description as description_english, IF(p.product_id IS NULL, 'no selected', '1') AS company_id
+	  FROM ocun_product p
+	  LEFT JOIN ocun_product_description pd USING (product_id)
+	  LEFT JOIN ocun_product_description pd1 USING (product_id)
+	  LEFT JOIN ocun_product_description pd2 USING (product_id)
+	  LEFT JOIN ocun_product_filter pf USING (product_id)  
+	  LEFT JOIN ocun_product_to_category pc USING (product_id)
+	  WHERE pd.language_id = 2
+	  and pd1.language_id = 1
+	  and pd2.language_id = 6
+	  GROUP BY pc.product_id
+	  ORDER BY p.product_id ASC
 # window curl fix
 
 			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
