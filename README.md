@@ -105,4 +105,7 @@ DELETE FROM `ocun_demo1category_to_store` WHERE category_id > 0;
 DELETE FROM `ocun_demo1category_path` WHERE category_id > 0;
 
 #lazada excel
-SELECT a.product_id, a.name as '*Product Name', a.description as 'Product Description*', concat('http://beechinheong.com/image/',b.image) as 'Product Image 1*', b.model, b.price as '*Price', 'Bee Chin Heong' as '*Brand',b.quantity as '*Quantity', b.weight as '*Package Weight (kg)', b.length as '*Package Dimensions (cm)-Length (cm)', b.width as '*Package Dimensions (cm)-Width (cm)', b.height as '*Package Dimensions (cm)-Height (cm)' FROM `ocun_product_description` a INNER JOIN ocun_product b ON a.product_id = b.product_id  WHERE a.language_id = 2 and b.quantity != 0  
+	SELECT a.product_id, a.name as '*Product Name', a.description as 'Product Description*', concat('http://beechinheong.com/image/',b.image) as 'Product Image 1*', b.model, b.price as '*Price', 'Bee Chin Heong' as '*Brand',b.quantity as '*Quantity', b.weight as '*Package Weight (kg)', b.length as '*Package Dimensions (cm)-Length (cm)', b.width as '*Package Dimensions (cm)-Width (cm)', b.height as '*Package Dimensions (cm)-Height (cm)' FROM `ocun_product_description` a INNER JOIN ocun_product b ON a.product_id = b.product_id  WHERE a.language_id = 2 and b.quantity != 0  
+
+#Shopee
+	SELECT a.product_id,c.category_id as 'Category', a.name as 'Product Name', a.description as 'Product Description', concat('http://beechinheong.com/image/',b.image) as 'Cover image', b.model as 'SKU', b.price as 'Price',b.quantity as 'Stock', b.weight as 'Weight' FROM ocun_product_description a INNER JOIN ocun_product b ON a.product_id = b.product_id INNER JOIN ocun_product_to_category c ON a.product_id = c.product_id WHERE a.language_id = 2 and b.quantity != 0
