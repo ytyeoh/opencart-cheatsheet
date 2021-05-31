@@ -73,26 +73,27 @@ Reset Opencart product
 	ALTER TABLE ocmv_category_to_layout AUTO_INCREMENT = 1;
 
 # opencart-cheatsheet delete product
-	ALTER TABLE ocmv_product AUTO_INCREMENT = 1;
-	DELETE FROM ocmv_product WHERE product_id > 0;
-	DELETE FROM ocmv_product_attribute WHERE product_id > 0;
-	DELETE FROM ocmv_product_description WHERE product_id > 0;
-	ALTER TABLE ocmv_product_discount AUTO_INCREMENT = 1;
-	DELETE FROM ocmv_product_discount WHERE ocmv_producty_discount_id > 0;
-	ALTER TABLE ocmv_product_image  AUTO_INCREMENT = 1;
-	DELETE FROM ocmv_product_image WHERE product_image_id > 0;
-	ALTER TABLE ocmv_product_option  AUTO_INCREMENT = 1;
-	DELETE FROM ocmv_product_option WHERE product_option_id > 0;
-	ALTER TABLE ocmv_product_option_value  AUTO_INCREMENT = 1;
-	DELETE FROM ocmv_product_option_value WHERE product_option_value_id > 0;
-	ALTER TABLE ocmv_product_related  AUTO_INCREMENT = 1;
-	DELETE FROM ocmv_product_related WHERE product_option_value_id > 0;
-	ALTER TABLE ocmv_product_reward  AUTO_INCREMENT = 1;
-	DELETE FROM ocmv_product_reward WHERE product_reward_id > 0;
-	ALTER TABLE ocmv_product_special AUTO_INCREMENT = 1;
-	DELETE FROM ocmv_product_special WHERE product_special_id > 0;
-	DELETE FROM ocmv_product_categoty WHERE product_id > 0;
-	DELETE FROM ocmv_product_to_store WHERE product_id > 0;
+	ALTER TABLE ocun_product AUTO_INCREMENT = 1;
+	DELETE FROM ocun_product WHERE product_id > 0;
+	DELETE FROM ocun_product_attribute WHERE product_id > 0;
+	DELETE FROM ocun_product_description WHERE product_id > 0;
+	ALTER TABLE ocun_product_discount AUTO_INCREMENT = 1;
+	DELETE FROM ocun_product_discount WHERE product_discount_id > 0;
+	ALTER TABLE ocun_product_image  AUTO_INCREMENT = 1;
+	DELETE FROM ocun_product_image WHERE product_image_id > 0;
+	ALTER TABLE ocun_product_option  AUTO_INCREMENT = 1;
+	DELETE FROM ocun_product_option WHERE product_option_id > 0;
+	ALTER TABLE ocun_product_option_value  AUTO_INCREMENT = 1;
+	DELETE FROM ocun_product_option_value WHERE product_option_value_id > 0;
+	ALTER TABLE ocun_product_related  AUTO_INCREMENT = 1;
+	DELETE FROM ocun_product_related WHERE product_id > 0;
+	ALTER TABLE ocun_product_reward  AUTO_INCREMENT = 1;
+	DELETE FROM ocun_product_reward WHERE product_reward_id > 0;
+	ALTER TABLE ocun_product_special AUTO_INCREMENT = 1;
+	DELETE FROM ocun_product_special WHERE product_special_id > 0;
+	DELETE FROM ocun_product_to_category WHERE product_id > 0;
+	DELETE FROM ocun_product_to_store WHERE product_id > 0;
+
 
 
 
