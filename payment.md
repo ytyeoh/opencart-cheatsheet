@@ -7,7 +7,8 @@ Got charge similiar to Razor pay nend setup fee & manitainance
 Got charge similiar to Razor pay nend setup fee & manitainance
 * Maybank
 
-need mayabnk account, credit card charges only tell upon approve. 
+need mayabnk account, credit card charges only tell upon approve.
+
 The Merchant Rate, setup fee (if applicable) and annual maintenance fee (if applicable) will be provided in the Letter of Offer upon application approved.
 
 * SenangPay
