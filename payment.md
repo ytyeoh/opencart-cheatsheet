@@ -21,3 +21,4 @@ Got charge similiar to Razor pay nend setup fee & manitainance
 * ### Stripe
 
 3% + RM1 no setup fee & maintainance
+
