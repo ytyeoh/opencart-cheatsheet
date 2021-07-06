@@ -5,6 +5,8 @@ Got charge similiar to Razor pay nend setup fee & manitainance
 * ### GHL
 
 Got charge similiar to Razor pay nend setup fee & manitainance
+
+[pdf](https://github.com/ytyeoh/opencart-cheatsheet/blob/master/G-Direct%20Pricing%20Deck%20(MY)-1.pdf)
 * ### Maybank
 
 need mayabnk account, credit card charges only tell upon approve.
