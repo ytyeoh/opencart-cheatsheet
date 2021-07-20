@@ -73,12 +73,14 @@ Reset Opencart product
 	ALTER TABLE ocmv_category_to_layout AUTO_INCREMENT = 1;
 
 # opencart-cheatsheet delete product
+	ALTER TABLE `ocun_product` CHANGE `date_available` `date_available` DATE NOT NULL;
 	ALTER TABLE ocun_product AUTO_INCREMENT = 1;
 	DELETE FROM ocun_product WHERE product_id > 0;
 	DELETE FROM ocun_product_attribute WHERE product_id > 0;
 	DELETE FROM ocun_product_description WHERE product_id > 0;
-	ALTER TABLE ocun_product_discount AUTO_INCREMENT = 1;
 	DELETE FROM ocun_product_discount WHERE product_discount_id > 0;
+	ALTER TABLE `ocun_product_discount` CHANGE `date_start` `date_start` DATE NOT NULL, CHANGE `date_end` `date_end` DATE NOT NULL;
+	ALTER TABLE ocun_product_discount AUTO_INCREMENT = 1;
 	ALTER TABLE ocun_product_image  AUTO_INCREMENT = 1;
 	DELETE FROM ocun_product_image WHERE product_image_id > 0;
 	ALTER TABLE ocun_product_option  AUTO_INCREMENT = 1;
@@ -89,10 +91,12 @@ Reset Opencart product
 	DELETE FROM ocun_product_related WHERE product_id > 0;
 	ALTER TABLE ocun_product_reward  AUTO_INCREMENT = 1;
 	DELETE FROM ocun_product_reward WHERE product_reward_id > 0;
-	ALTER TABLE ocun_product_special AUTO_INCREMENT = 1;
 	DELETE FROM ocun_product_special WHERE product_special_id > 0;
+	ALTER TABLE `ocun_product_special` CHANGE `date_start` `date_start` DATE NOT NULL, CHANGE `date_end` `date_end` DATE NOT NULL;
+	ALTER TABLE ocun_product_special AUTO_INCREMENT = 1;
 	DELETE FROM ocun_product_to_category WHERE product_id > 0;
 	DELETE FROM ocun_product_to_store WHERE product_id > 0;
+
 
 
 
