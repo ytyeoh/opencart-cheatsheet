@@ -98,6 +98,14 @@ Reset Opencart product
 	ALTER TABLE ocun_product_special AUTO_INCREMENT = 1;
 	DELETE FROM ocun_product_to_category WHERE product_id > 0;
 	DELETE FROM ocun_product_to_store WHERE product_id > 0;
+	ALTER TABLE ocun_attribute AUTO_INCREMENT = 1;
+	DELETE FROM ocun_attribute WHERE attribute_id > 0;
+	ALTER TABLE ocun_attribute_description AUTO_INCREMENT = 1;
+	DELETE FROM ocun_attribute_description WHERE attribute_id > 0;
+	ALTER TABLE ocun_attribute_group AUTO_INCREMENT = 1;
+	DELETE FROM ocun_attribute_group WHERE attribute_group_id > 0;
+	ALTER TABLE ocun_attribute_group_description AUTO_INCREMENT = 1;
+	DELETE FROM ocun_attribute_group_description WHERE attribute_group_id > 0;
 
 
 
