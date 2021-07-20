@@ -63,14 +63,16 @@ Reset Opencart product
       DELETE FROM ocmv_category WHERE category_id > 0;
 
 # opencart-cheatsheet delete category
-	DELETE FROM ocmv_category_description WHERE category_id > 0;
-	ALTER TABLE ocmv_category_description AUTO_INCREMENT = 1;
-	DELETE FROM ocmv_category_path WHERE category_id > 0;
-	ALTER TABLE ocmv_category_path AUTO_INCREMENT = 1;
-	DELETE FROM ocmv_category_to_store WHERE category_id > 0;
-	ALTER TABLE ocmv_category_to_store AUTO_INCREMENT = 1;
-	DELETE FROM ocmv_category_to_layout WHERE category_id > 0;
-	ALTER TABLE ocmv_category_to_layout AUTO_INCREMENT = 1;
+	DELETE FROM ocun_category WHERE category_id > 0;
+	ALTER TABLE ocun_category AUTO_INCREMENT = 1;
+	DELETE FROM ocun_category_description WHERE category_id > 0;
+	ALTER TABLE ocun_category_description AUTO_INCREMENT = 1;
+	DELETE FROM ocun_category_path WHERE category_id > 0;
+	ALTER TABLE ocun_category_path AUTO_INCREMENT = 1;
+	DELETE FROM ocun_category_to_store WHERE category_id > 0;
+	ALTER TABLE ocun_category_to_store AUTO_INCREMENT = 1;
+	DELETE FROM ocun_category_to_layout WHERE category_id > 0;
+	ALTER TABLE ocun_category_to_layout AUTO_INCREMENT = 1;
 
 # opencart-cheatsheet delete product
 	ALTER TABLE `ocun_product` CHANGE `date_available` `date_available` DATE NOT NULL;
